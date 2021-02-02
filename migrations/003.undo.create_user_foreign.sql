@@ -1,0 +1,1 @@
+ALTER TABLE reflections DROP COLUMN IF EXISTS userId;
