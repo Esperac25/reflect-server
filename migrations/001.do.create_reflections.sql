@@ -3,7 +3,7 @@ CREATE TABLE reflections(
     dateCreated TIMESTAMPTZ DEFAULT now() not NULL,
     title TEXT NOT NULL,
     image_url TEXT,
-    description TEXT NOT NULL,
-    feeling TEXT NOT NULL,
+    description VARCHAR (50),
+    feeling VARCHAR (50),
     content TEXT NOT NULL,
 )
