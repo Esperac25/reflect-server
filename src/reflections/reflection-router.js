@@ -10,10 +10,12 @@ reflectionRouter
     .get(requireAuth, (req, res, next) => {
         console.log('called', req.user.id);
         ReflectionService.getReflections(req.app.get('db'), req.user.id)
-            .then((reflections) => res.json(reflections))
+            .then((reflections) => {
+                return res.json(reflections.map(reflection))
+            })
             .catch(next);
     })
-    .post(requireAuth, (req, res, next) => {
+    .post(requireAuth, jsonParser, (req, res, next) => {
         if(!req.body.title){
             res.status(400).json({ error: 'Title is required'})
         }

@@ -35,7 +35,7 @@ usersRouter
         }
 
         if(password.length < 8){
-            return res.status(400).json({ error: `Pasword must 8 or more characters`})
+            return res.status(400).json({ error: `Password must 8 or more characters`})
         }
 
         if(!REGEX_UPPER_LOWER_NUMBER_SPECIAL.test(password)){
