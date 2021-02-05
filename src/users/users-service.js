@@ -17,7 +17,7 @@ const UsersService = {
             .returning('*')
             .then((rows) => rows[0]);
     },
-    hasPassword(password){
+    hashPassword(password){
         return bcrypt.hash(password, 12);
     },
     getUsers(knex){
