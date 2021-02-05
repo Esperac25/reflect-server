@@ -1,1 +1,1 @@
-DROP TYPE IF EXISTS "users";
+DROP TYPE IF EXISTS users;
