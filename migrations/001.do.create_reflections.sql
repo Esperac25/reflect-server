@@ -6,4 +6,4 @@ CREATE TABLE reflections (
     description VARCHAR (50),
     feeling VARCHAR (50),
     content TEXT NOT NULL,
-);
+)
