@@ -24,7 +24,7 @@ app.use('/api/auth', authRouter);
 app.use('/api/reflections', reflectionRouter);
 
 app.get('/', (req, res) => {
-  res.send('Hello, boilerplate!')
+  res.send('Hello, reflect-server!')
 });
 
 app.use(function errorHandler(error, req, res, next) {

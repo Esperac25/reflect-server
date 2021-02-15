@@ -12,7 +12,6 @@ reflectionRouter
         ReflectionService.getReflections(req.app.get("db"), req.user.id)
             
 			.then((reflections) => {
-                console.log(reflections)
 				return res.json(reflections);
 			})
 			.catch(next);
