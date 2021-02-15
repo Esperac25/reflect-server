@@ -1,5 +1,4 @@
-INSERT INTO users (email, password)
+INSERT INTO users(id, email, password)
 VALUES(
-    'demo@demo.com',
-    'Demo!1234'
+    2,'demo@demo.com','Demo!1234'
 )
