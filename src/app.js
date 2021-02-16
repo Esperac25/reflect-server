@@ -14,7 +14,7 @@ const morganOption = NODE_ENV === "production" ? "tiny" : "common";
 const app = express();
 app.use(morgan(morganOption));
 app.use(helmet());
-app.use(cors(('Access-Control-Allow-Origin: *')));
+app.use(cors({ origin: CLIENT_ORIGIN }));
 app.use(express.json());
 
 //Users
