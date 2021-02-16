@@ -10,16 +10,11 @@ const authRouter = require("./auth/auth-router");
 
 const morganOption = NODE_ENV === "production" ? "tiny" : "common";
 
-const corsOption = {
-	origin: "*",
-	methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-	preflightContinue: false,
-	optionsSuccessStatus: 204,
-};
+
 const app = express();
 app.use(morgan(morganOption));
 app.use(helmet());
-app.use(cors(corsOption));
+app.use(cors(('Access-Control-Allow-Origin: *')));
 app.use(express.json());
 
 //Users
