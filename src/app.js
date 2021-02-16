@@ -11,8 +11,11 @@ const authRouter = require("./auth/auth-router");
 const morganOption = NODE_ENV === "production" ? "tiny" : "common";
 
 const corsOption = {
-  origin: '*'
-}
+	origin: "*",
+	methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+	preflightContinue: false,
+	optionsSuccessStatus: 204,
+};
 const app = express();
 app.use(morgan(morganOption));
 app.use(helmet());
@@ -20,25 +23,25 @@ app.use(cors(corsOption));
 app.use(express.json());
 
 //Users
-app.use('/api/users', usersRouter);
-app.use('/api/auth', authRouter);
+app.use("/api/users", usersRouter);
+app.use("/api/auth", authRouter);
 
 //Reflections
-app.use('/api/reflections', reflectionRouter);
+app.use("/api/reflections", reflectionRouter);
 
-app.get('/', (req, res) => {
-  res.send('Hello, reflect-server!')
+app.get("/", (req, res) => {
+	res.send("Hello, reflect-server!");
 });
 
 app.use(function errorHandler(error, req, res, next) {
-  let response;
-  if (NODE_ENV === "production") {
-    response = { error: { message: "server error" } };
-  } else {
-    console.error("error");
-    response = { message: error.message, error };
-  }
-  res.status(500).json(response);
+	let response;
+	if (NODE_ENV === "production") {
+		response = { error: { message: "server error" } };
+	} else {
+		console.error("error");
+		response = { message: error.message, error };
+	}
+	res.status(500).json(response);
 });
 
 module.exports = app;
