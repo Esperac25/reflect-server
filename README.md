@@ -1,35 +1,52 @@
-# EXPRESS BOILERPLATE
+# Reflect - Server
 
-### Get your Express project up and running easily with this boilerplate
+## RESTful API for Reflect-Client
 
----
+    heroku url: https://reflect-server.herokuapp.com/
 
-## Set up
+### Endpoints
+    POST /api/auth/login | post new user to get authentication to access database
+    GET /api/users | get the user
+    POST /api/users | register new user
+    GET /api/reflections | get all reflections
+    GET /api/reflections/:id | get a reflection by id
+    POST /api/reflections | add a new reflection
+    PATCH /api/reflections/:id | edit a reflection
+    DELETE /api/reflections/:id | delete reflection
 
-Complete the following steps to start a new project (NEW-PROJECT-NAME) with starter packages, folders and files:
 
-1. Clone this repository to your local machine `git clone https://github.com/Esperac25/express-boilerplate.git NEW-PROJECTS-NAME`
-2. `cd` into the cloned repository
-3. Make a fresh start of the git history for this project with `rm -rf .git && git init`
-4. Install the node dependencies `npm install`
-5. Move the example Environment file to `.env` that will be ignored by git and read by the express server `mv example.env .env`
-6. Edit the contents of the `package.json` to use NEW-PROJECT-NAME instead of `"name": "express-boilerplate",`
+## Technologies
+    Node.
+    Express.
+    JWT.
+    Mocha&Chai.
+    Nodemon.
+    Supertest.
+    PostgreSQL
 
----
 
-## Scripts
 
-Start the application `npm start`
+### Express.js, PostgreSQL, Node.js
+### Scripts
 
-Start nodemon for the application `npm run dev`
+    Start the application npm start
+    Start development server npm dev
+    Run database migrations npm run migrate
+    Run test database migrations npm run migrate:test
+    Deploy to heroku & run migrations npm run deploy
 
-Run the tests `npm test`
+## Use / Set-up
 
-Run a watching test environment `npm run watch`
+    clone repo
+    install and audit dependencies, npm i & npm audit fix
+    create psql databases 'reflect' and 'reflect-test', createdb reflect && createdb reflect-test
+    create .env file
+    configure .env :
 
----
+    PORT=[your_dev_port]
+    DATABASE_URL='postgresql://postgres@localhost/reflect'
+    TEST_DATABASE_URL='postgresql://postgres@localhost/reflect-test'
 
-## Deploying
+    run database migrations, npm run migrate && npm run migrate:test
 
-When your new project is ready for deployment, add a new Heroku application with `heroku create`.  
-This will make a new git remote called "heroku" and you can then `npm run deploy` which will push to this remote's main branch.
+### Once you're done following the steps you should be able to run the server locally!
